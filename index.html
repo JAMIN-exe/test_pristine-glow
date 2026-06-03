@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pristine Glow | Natural Skincare for Radiant, Healthy Skin</title>
 
   <!-- ── Primary SEO ── -->
-  <meta name="description" content="Pristine Glow is a clean, natural skincare brand crafting dermatologist-inspired formulas with plant-based ingredients. Discover our Glow Serum, Hydrating Moisturizer, Gentle Cleanser, and Skin Repair Cream." />
-  <meta name="keywords" content="natural skincare, clean beauty, glow serum, hydrating moisturizer, gentle cleanser, skin repair, botanical skincare, dermatologist skincare, Pristine Glow" />
+  <meta name="description"
+    content="Pristine Glow is a clean, natural skincare brand crafting dermatologist-inspired formulas with plant-based ingredients. Discover our Glow Serum, Hydrating Moisturizer, Gentle Cleanser, and Skin Repair Cream." />
+  <meta name="keywords"
+    content="natural skincare, clean beauty, glow serum, hydrating moisturizer, gentle cleanser, skin repair, botanical skincare, dermatologist skincare, Pristine Glow" />
   <meta name="author" content="Pristine Glow" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://testing-prestineglow.netlify.app/" />
@@ -15,7 +18,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Pristine Glow" />
   <meta property="og:title" content="Pristine Glow | Natural Skincare for Radiant, Healthy Skin" />
-  <meta property="og:description" content="Clean, plant-based skincare formulated for healthy, glowing skin. No harsh chemicals. Dermatologist-inspired. Affordable luxury." />
+  <meta property="og:description"
+    content="Clean, plant-based skincare formulated for healthy, glowing skin. No harsh chemicals. Dermatologist-inspired. Affordable luxury." />
   <meta property="og:url" content="https://testing-prestineglow.netlify.app/" />
   <meta property="og:image" content="https://testing-prestineglow.netlify.app/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -26,7 +30,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pristineglow" />
   <meta name="twitter:title" content="Pristine Glow | Natural Skincare for Radiant, Healthy Skin" />
-  <meta name="twitter:description" content="Clean, plant-based skincare formulated for healthy, glowing skin. No harsh chemicals. Dermatologist-inspired. Affordable luxury." />
+  <meta name="twitter:description"
+    content="Clean, plant-based skincare formulated for healthy, glowing skin. No harsh chemicals. Dermatologist-inspired. Affordable luxury." />
   <meta name="twitter:image" content="https://testing-prestineglow.netlify.app/og-image.jpg" />
 
   <!-- ── Theme & Mobile ── -->
@@ -53,19 +58,27 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet" />
 </head>
+
 <body>
 
   <!-- ── NAV ── -->
   <header class="site-header">
     <nav class="nav container">
       <a href="#" class="nav__logo">Pristine Glow</a>
-      <ul class="nav__links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#why-us">Why Us</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#products" class="nav__link">Products</a></li>
+        <li><a href="#why-us" class="nav__link">Why Us</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -233,7 +246,8 @@
           </div>
           <div class="form__group">
             <label for="message" class="form__label">Message</label>
-            <textarea id="message" name="message" class="form__input form__textarea" placeholder="What's on your mind?" required></textarea>
+            <textarea id="message" name="message" class="form__input form__textarea" placeholder="What's on your mind?"
+              required></textarea>
           </div>
           <button type="submit" class="btn btn--primary btn--full">Send Message</button>
         </form>
@@ -250,5 +264,24 @@
     </div>
   </footer>
 
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('nav__links--open');
+      hamburger.classList.toggle('nav__hamburger--open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('nav__links--open');
+        hamburger.classList.remove('nav__hamburger--open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
 </body>
+
 </html>
